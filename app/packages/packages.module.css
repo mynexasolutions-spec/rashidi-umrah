@@ -1,0 +1,170 @@
+/* --- SECTION CONTROLS & SEPARATORS --- */
+.package-category-section {
+  padding: 80px 0;
+  border-bottom: 1px solid #efe6d3;
+}
+
+.package-category-section:nth-child(even) {
+  background-color: var(--bg-light);
+}
+
+.section-intro {
+  margin-bottom: 45px;
+  border-left: 4px solid var(--accent);
+  padding-left: 20px;
+}
+
+.section-intro span {
+  color: var(--accent-hover);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  display: block;
+}
+
+.section-intro h3 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--primary);
+  margin-top: 5px;
+}
+
+/* --- GRID AND CARD COMPONENT ARCHITECTURE --- */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.packages-grid-vip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.package-card {
+  background-color: var(--bg-white);
+  border-radius: 8px;
+  border: 1px solid #efe6d3;
+  box-shadow: 0 15px 35px rgba(5, 38, 30, 0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.package-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+.card-header-badge {
+  background-color: var(--primary);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.card-header-badge.featured {
+  background: linear-gradient(135deg, var(--primary) 0%, #031914 100%);
+  border-bottom: 3px solid var(--accent);
+}
+
+.card-header-badge.vip {
+  background-color: #9f7b2e;
+}
+
+.card-header-badge h4 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--accent);
+  margin-bottom: 5px;
+}
+
+.card-header-badge p {
+  font-size: 0.8rem;
+  color: #a3beba;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.price-container {
+  padding: 25px 20px;
+  background-color: #fcfbf7;
+  text-align: center;
+  border-bottom: 1px dashed #efe6d3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.old-price {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  text-decoration: line-through;
+}
+
+.current-price {
+  color: var(--primary);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+/* Metrics Grid for Proximity & Management features */
+.metrics-stack {
+  padding: 25px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-grow: 1;
+}
+
+.metric-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.9rem;
+}
+
+.metric-row i {
+  color: var(--accent-hover);
+  margin-top: 4px;
+  font-size: 1rem;
+  width: 20px;
+  text-align: center;
+}
+
+.metric-label {
+  font-weight: 600;
+  color: var(--primary);
+  display: block;
+}
+
+.metric-val {
+  color: var(--text-dark);
+  font-size: 0.88rem;
+}
+
+.card-action {
+  padding: 0 24px 25px 24px;
+}
+
+.btn-outline-vip {
+  border-color: #aa8e52;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 992px) {
+  .packages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .packages-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,66 +1,462 @@
 import Image from "next/image";
-import styles from "./page.module.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Testimonials from "@/components/Testimonials";
+import styles from "./home.module.css";
+
+const services = [
+  {
+    icon: "fa-solid fa-passport",
+    title: "Visa Assistance",
+    text: "Fast & hassle-free visa processing with full document support.",
+  },
+  {
+    icon: "fa-solid fa-ticket",
+    title: "Flight Booking",
+    text: "Best flight options with comfort and convenience at affordable prices.",
+  },
+  {
+    icon: "fa-solid fa-bus",
+    title: "Full Transport",
+    text: "Full transport service with AC buses for all ground transfers.",
+  },
+  {
+    icon: "fa-solid fa-utensils",
+    title: "Food Services",
+    text: "Hygienic and delicious meals provided throughout your stay.",
+  },
+  {
+    icon: "fa-solid fa-mosque",
+    title: "Makkah & Madina Local Ziyarat",
+    text: "Makkah & Madina local ziyarat with experienced guides.",
+  },
+  {
+    icon: "fa-solid fa-kaaba",
+    title: "Hajj Packages",
+    text: "Special Hajj packages with complete guidance and arrangements.",
+  },
+  {
+    icon: "fa-solid fa-earth-americas",
+    title: "International Tours",
+    text: "Explore beautiful international destinations with us.",
+  },
+];
+
+const packages = [
+  {
+    tag: "Best Seller",
+    img: "/images/makkah.png",
+    alt: "Economy Umrah Group View",
+    title: "Economy Umrah Package",
+    duration: "14 Days Package",
+    features: [
+      { icon: "fa-solid fa-hotel", label: "3 Star Hotel" },
+      { icon: "fa-solid fa-utensils", label: "Breakfast" },
+      { icon: "fa-solid fa-users", label: "Sharing Basis" },
+      { icon: "fa-solid fa-bus", label: "Visa & Transport" },
+    ],
+    oldPrice: "Rs. 95,000",
+    price: "Rs. 85,000",
+  },
+  {
+    tag: null,
+    img: "/images/madinah.png",
+    alt: "Deluxe Prophet Mosque Al Masjid an Nabawi",
+    title: "Deluxe Umrah Package",
+    duration: "21 Days Package",
+    features: [
+      { icon: "fa-solid fa-hotel", label: "4 Star Hotel" },
+      { icon: "fa-solid fa-utensils", label: "Breakfast & Dinner" },
+      { icon: "fa-solid fa-users", label: "Sharing Basis" },
+      { icon: "fa-solid fa-bus", label: "Visa & Transport" },
+    ],
+    oldPrice: "Rs. 1,05,000",
+    price: "Rs. 95,000",
+  },
+  {
+    tag: null,
+    img: "/images/mosque.png",
+    alt: "Prophet's Mosque Umbrellas View",
+    title: "Premium Umrah Package",
+    duration: "21 Days Package",
+    features: [
+      { icon: "fa-solid fa-hotel", label: "5 Star Hotel" },
+      { icon: "fa-solid fa-utensils", label: "All Meals" },
+      { icon: "fa-solid fa-users", label: "Sharing Basis" },
+      { icon: "fa-solid fa-bus", label: "Visa & Transport" },
+    ],
+    oldPrice: "Rs. 1,50,000",
+    price: "Rs. 1,20,000",
+  },
+  {
+    tag: "Limited Seats",
+    img: "/images/arafah.png",
+    alt: "Mount Arafat Pilgrims Gathering",
+    title: "Hajj Package",
+    duration: "40 Days Package",
+    features: [
+      { icon: "fa-solid fa-campground", label: "Mina, Arafat Stay" },
+      { icon: "fa-solid fa-utensils", label: "All Meals" },
+      { icon: "fa-solid fa-users", label: "Sharing Basis" },
+      { icon: "fa-solid fa-bus", label: "Visa & Transport" },
+    ],
+    oldPrice: "Rs. 7,00,000",
+    price: "Rs. 6,50,000",
+  },
+];
+
+const whyChoose = [
+  {
+    icon: "fa-solid fa-star",
+    title: "Experienced & Trusted",
+    text: "10+ years of experience in Umrah & Hajj services.",
+  },
+  {
+    icon: "fa-solid fa-tags",
+    title: "Best Price Guarantee",
+    text: "Competitive prices with no hidden charges.",
+  },
+  {
+    icon: "fa-solid fa-bed",
+    title: "Comfort & Convenience",
+    text: "Quality hotels, transport & meal services.",
+  },
+  {
+    icon: "fa-solid fa-clock",
+    title: "24/7 Support",
+    text: "We are with you at every step of your journey.",
+  },
+  {
+    icon: "fa-solid fa-book-quran",
+    title: "Guidance & Support",
+    text: "Religious guidance and support throughout.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <Header active="Home" />
+
+      {/* HERO SECTION */}
+      <section className={styles.hero}>
+        <div className="container">
+          <div className={styles["hero-grid"]}>
+            <div className={styles["hero-content"]}>
+              <div className={styles.badge}>
+                <i className="fa-solid fa-circle-check"></i> Trusted by
+                Thousands of Pilgrims
+              </div>
+              <h2>
+                Your Journey
+                <br />
+                Towards Allah
+                <br />
+                <span>Starts Here</span>
+              </h2>
+              <p>
+                We provide reliable and comfortable Umrah & Hajj services with
+                complete support for a spiritual and peaceful journey.
+              </p>
+
+              <div className={styles["hero-actions"]}>
+                <button className="btn btn-primary">
+                  Explore Packages <i className="fa-solid fa-arrow-right"></i>
+                </button>
+                <button className="btn btn-outline">
+                  Download Brochure <i className="fa-solid fa-download"></i>
+                </button>
+              </div>
+
+              <div className={styles["hero-stats"]}>
+                <div className={styles["stat-item"]}>
+                  <i className="fa-solid fa-award"></i>
+                  <div className={styles["stat-info"]}>
+                    <h4>10+</h4>
+                    <p>Years of Experience</p>
+                  </div>
+                </div>
+                <div className={styles["stat-item"]}>
+                  <i className="fa-solid fa-users"></i>
+                  <div className={styles["stat-info"]}>
+                    <h4>25,000+</h4>
+                    <p>Happy Pilgrims</p>
+                  </div>
+                </div>
+                <div className={styles["stat-item"]}>
+                  <i className="fa-solid fa-plane-departure"></i>
+                  <div className={styles["stat-info"]}>
+                    <h4>100+</h4>
+                    <p>Group Departures</p>
+                  </div>
+                </div>
+                <div className={styles["stat-item"]}>
+                  <i className="fa-solid fa-headset"></i>
+                  <div className={styles["stat-info"]}>
+                    <h4>24/7</h4>
+                    <p>Support Available</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles["hero-image-wrapper"]}>
+              <div className={styles["hero-frame"]}>
+                <Image
+                  src="/images/Gemini_Generated_Image_tu0rvitu0rvitu0r1.png"
+                  alt="Makkah Holy Kaaba Grand Mosque"
+                  width={460}
+                  height={520}
+                  priority
+                />
+              </div>
+            </div>
+          </div>
         </div>
-        <div className={styles.ctas}>
+      </section>
+
+      {/* OUR SERVICES SECTION */}
+      <section className={styles.services}>
+        <div className="container">
+          <div className="section-header">
+            <h2>Our Services</h2>
+            <p>Everything you need for a blessed and hassle-free journey</p>
+          </div>
+
+          <div className={styles["services-grid"]}>
+            {services.map((service) => (
+              <div key={service.title} className={styles["service-card"]}>
+                <div className={styles["service-icon"]}>
+                  <i className={service.icon}></i>
+                </div>
+                <h3>{service.title}</h3>
+                <p>{service.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* OUR POPULAR PACKAGES SECTION */}
+      <section className={styles.packages}>
+        <div className="container">
+          <div className={styles["packages-top"]}>
+            <div className="section-header">
+              <h2>Our Popular Packages</h2>
+            </div>
+            <a href="/packages" className={styles["view-all-link"]}>
+              View All Packages <i className="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <div className={styles["packages-grid"]}>
+            {packages.map((pkg) => (
+              <div key={pkg.title} className={styles["package-card"]}>
+                <div className={styles["package-img-container"]}>
+                  {pkg.tag && (
+                    <span className={styles["package-tag"]}>{pkg.tag}</span>
+                  )}
+                  <Image src={pkg.img} alt={pkg.alt} fill sizes="(max-width: 768px) 100vw, 25vw" />
+                </div>
+                <div className={styles["package-body"]}>
+                  <h3>{pkg.title}</h3>
+                  <div className={styles.duration}>
+                    <i className="fa-regular fa-clock"></i> {pkg.duration}
+                  </div>
+                  <div className={styles["package-features"]}>
+                    {pkg.features.map((f) => (
+                      <div key={f.label} className={styles["feature-lbl"]}>
+                        <i className={f.icon}></i> {f.label}
+                      </div>
+                    ))}
+                  </div>
+                  <div className={styles["package-footer"]}>
+                    <div className={styles["price-box"]}>
+                      <del className={styles["old-price"]}>{pkg.oldPrice}</del>
+                      <span>From</span>
+                      <span className={styles["current-price"]}>{pkg.price}</span>
+                    </div>
+                    <button className={`btn ${styles["btn-view-details"]}`}>
+                      View Details
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ABOUT US SECTION */}
+      <section className={styles["about-us"]}>
+        <div className="container">
+          <div className={styles["about-grid"]}>
+            <div className={styles["about-text"]}>
+              <h4>About Us</h4>
+              <h2>A Trusted Partner for Your Umrah & Hajj Journey</h2>
+              <p>
+                Rashidi Umrah Tours & Travels is a trusted name in the travel
+                industry, dedicated to serving the pilgrims with sincerity and
+                professionalism.
+              </p>
+              <p>
+                Our mission is to make your spiritual journey comfortable,
+                meaningful, and memorable.
+              </p>
+
+              <ul className={styles["about-bullets"]}>
+                <li>
+                  <i className="fa-solid fa-check"></i> IATA Approved Travel
+                  Agency
+                </li>
+                <li>
+                  <i className="fa-solid fa-check"></i> Expert Guidance &
+                  Group Leaders
+                </li>
+                <li>
+                  <i className="fa-solid fa-check"></i> Personalized Service &
+                  Support
+                </li>
+                <li>
+                  <i className="fa-solid fa-check"></i> Thousands of Happy
+                  Pilgrims
+                </li>
+              </ul>
+
+              <a href="/about" className="btn btn-accent">
+                Know More About Us <i className="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+
+            <div className={styles["about-images"]}>
+              <div className={styles["main-arch-frame"]}>
+                <Image
+                  src="/images/Gemini_Generated_Image_tu0rvitu0rvitu0r2.png"
+                  alt="Pilgrims at Inner Prayer"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                />
+              </div>
+              <div className={styles["side-frames"]}>
+                <div className={styles["side-img-box"]}>
+                  <Image
+                    src="/images/jabalenoor.png"
+                    alt="Jabal-E-Noor Cave Mountain"
+                    fill
+                    sizes="(max-width: 1024px) 50vw, 20vw"
+                  />
+                </div>
+                <div className={styles["side-img-box"]}>
+                  <Image
+                    src="/images/madinahstreets.png"
+                    alt="Madinah Traditional Streets Historic Architecture"
+                    fill
+                    sizes="(max-width: 1024px) 50vw, 20vw"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className={styles["about-stats-panel"]}>
+              <div className={styles["about-stat-row"]}>
+                <div className={styles["about-stat-icon"]}>
+                  <i className="fa-solid fa-passport"></i>
+                </div>
+                <div className={styles["about-stat-val"]}>
+                  <h3>10+</h3>
+                  <p>Years of Experience</p>
+                </div>
+              </div>
+              <div className={styles["about-stat-row"]}>
+                <div className={styles["about-stat-icon"]}>
+                  <i className="fa-solid fa-face-smile"></i>
+                </div>
+                <div className={styles["about-stat-val"]}>
+                  <h3>25,000+</h3>
+                  <p>Happy Customers</p>
+                </div>
+              </div>
+              <div className={styles["about-stat-row"]}>
+                <div className={styles["about-stat-icon"]}>
+                  <i className="fa-solid fa-plane"></i>
+                </div>
+                <div className={styles["about-stat-val"]}>
+                  <h3>100+</h3>
+                  <p>Group Departures</p>
+                </div>
+              </div>
+              <div className={styles["about-stat-row"]}>
+                <div className={styles["about-stat-icon"]}>
+                  <i className="fa-solid fa-globe"></i>
+                </div>
+                <div className={styles["about-stat-val"]}>
+                  <h3>15+</h3>
+                  <p>Countries Served</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY CHOOSE US */}
+      <section className={styles["why-choose"]}>
+        <div className="container">
+          <div className="section-header">
+            <h2>Why Choose Rashidi Umrah?</h2>
+          </div>
+
+          <div className={styles["why-grid"]}>
+            {whyChoose.map((item) => (
+              <div key={item.title} className={styles["why-item"]}>
+                <div className={styles["why-icon-circle"]}>
+                  <i className={item.icon}></i>
+                </div>
+                <h4>{item.title}</h4>
+                <p>{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS SECTION */}
+      <section className={styles.testimonials}>
+        <div className="container">
+          <div className="section-header">
+            <h2>What Our Pilgrims Say</h2>
+          </div>
+
+          <Testimonials />
+        </div>
+      </section>
+
+      {/* CTA BANNER */}
+      <div className={`container ${styles["cta-banner"]}`}>
+        <div className={styles["cta-box"]}>
+          <div className={styles["cta-left"]}>
+            <div className={styles["cta-phone-circle"]}>
+              <i className="fa-solid fa-phone-volume"></i>
+            </div>
+            <div className={styles["cta-text"]}>
+              <h3>Ready to Start Your Blessed Journey?</h3>
+              <p>
+                Book your Umrah or Hajj package today and let us take care of
+                the rest. Your satisfaction is our responsibility.
+              </p>
+            </div>
+          </div>
           <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/contact"
+            className="btn btn-accent"
+            style={{ color: "var(--primary)", background: "white" }}
           >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+            Enquire Now <i className="fa-solid fa-arrow-right"></i>
           </a>
         </div>
-      </main>
-    </div>
+      </div>
+
+      <Footer />
+    </>
   );
 }
