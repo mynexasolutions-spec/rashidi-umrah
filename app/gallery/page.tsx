@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import CTABanner from "@/components/CTABanner";
 import styles from "./gallery.module.css";
 
 type Category = "all" | "makkah" | "madinah" | "ziyarat";
@@ -172,6 +173,8 @@ export default function GalleryPage() {
           </div>
         </div>
       </section>
+
+      <CTABanner />
     </>
   );
 }
